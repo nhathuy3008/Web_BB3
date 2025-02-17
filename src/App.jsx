@@ -1,13 +1,18 @@
 import { useState } from 'react'
-// import { BrowserRouter as Router, useLocation } from "react-router-dom";
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import { BrowserRouter as Router, useLocation } from "react-router-dom";
+import AppRouter from './AppRouter';
+import AppBarComponent from "./components/Appbar/Appbar"
+const App = () => {
   return (
-    <>
-    </>
-  )
-}
+    // <AuthProvider>
+    //   <ConfirmProvider>
+        <Router>
+          <AppRouter></AppRouter>
+          <AppBarComponent />
+        </Router>
+    //   </ConfirmProvider>
+    // </AuthProvider>
+  );
+};
 
 export default App
