@@ -13,3 +13,7 @@ Route::get('/accounts/total', [AccountController::class, 'getTotalUsers']);
 
 // Route xác nhận tài khoản
 Route::get('/accounts/confirm/{token}', [AccountController::class, 'confirmAccount']);
+
+use App\Http\Controllers\CategoryController;
+Route::post('categories/create', [CategoryController::class, 'store']); // Sử dụng POST cho tạo mới
+Route::apiResource('categories', CategoryController::class);
