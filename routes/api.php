@@ -25,3 +25,8 @@ Route::apiResource('products', ProductController::class);
 use App\Http\Controllers\CommentController;
 Route::post('/comments', [CommentController::class, 'addComment']);
 Route::get('/products/{productId}/comments', [CommentController::class, 'getCommentsByProduct']);
+
+use App\Http\Controllers\CartController;
+    Route::get('/cart', [CartController::class, 'getCartItems']);
+    Route::post('/cart', [CartController::class, 'addToCart']);
+    Route::delete('/cart/{id}', [CartController::class, 'removeFromCart']);
