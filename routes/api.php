@@ -17,6 +17,11 @@ Route::get('/accounts/confirm/{token}', [AccountController::class, 'confirmAccou
 use App\Http\Controllers\CategoryController;
 Route::post('categories/create', [CategoryController::class, 'store']); // Sử dụng POST cho tạo mới
 Route::apiResource('categories', CategoryController::class);
-use App\Http\Controllers\ProductController;
 
+use App\Http\Controllers\ProductController;
 Route::apiResource('products', ProductController::class);
+
+
+use App\Http\Controllers\CommentController;
+Route::post('/comments', [CommentController::class, 'addComment']);
+Route::get('/products/{productId}/comments', [CommentController::class, 'getCommentsByProduct']);
