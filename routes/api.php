@@ -30,3 +30,10 @@ use App\Http\Controllers\CartController;
     Route::get('/cart', [CartController::class, 'getCartItems']);
     Route::post('/cart', [CartController::class, 'addToCart']);
     Route::delete('/cart/{id}', [CartController::class, 'removeFromCart']);
+
+use App\Http\Controllers\DiscountController;
+
+    Route::post('/discounts', [DiscountController::class, 'store']);
+    Route::put('/discounts/{id}', [DiscountController::class, 'update']);
+    Route::delete('/discounts/{id}', [DiscountController::class, 'destroy']);
+    Route::post('/discounts/apply', [DiscountController::class, 'apply']);
