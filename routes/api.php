@@ -27,7 +27,14 @@ Route::apiResource('products', ProductController::class);
 Route::post('/comments', [CommentController::class, 'addComment']);
 Route::get('/products/{productId}/comments', [CommentController::class, 'getCommentsByProduct']);
 
-use App\Http\Controllers\CartController;
-    Route::get('/cart', [CartController::class, 'getCartItems']);
-    Route::post('/cart', [CartController::class, 'addToCart']);
-    Route::delete('/cart/{id}', [CartController::class, 'removeFromCart']);
+Route::get('/cart', [CartController::class, 'getCartItems']);
+Route::post('/cart', [CartController::class, 'addToCart']);
+Route::delete('/cart/{id}', [CartController::class, 'removeFromCart']);
+
+// Routes API cho Order và Checkout
+Route::get('/orders', [OrderController::class, 'index']);
+Route::get('/orders/{id}', [OrderController::class, 'show']);
+Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus']);
+
+Route::post('/checkout', [CheckoutController::class, 'checkout']);
+Route::post('/payment/callback', [CheckoutController::class, 'paymentCallback']);
